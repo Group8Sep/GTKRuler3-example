@@ -17,3 +17,5 @@ target_link_libraries(GTKRuler3_example ${Cairo_LIBRARIES})
 add_definitions(${GTK3_CFLAGS_OTHER})
 
 target_link_libraries(GTKRuler3_example ${GTK3_LIBRARIES})
+add_subdirectory(GTKRuler3)
+target_link_libraries(GTKRuler3_example GTKRuler3)

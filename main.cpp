@@ -1,14 +1,27 @@
 #include <gtk/gtk.h>
+#include "GTKRuler3/gtkhruler.h"
+#include "GTKRuler3/gtkvruler.h"
+#include "GTKRuler3/gtkruler.h"
 
 static void
 activate (GtkApplication* app,
           gpointer        user_data)
 {
     GtkWidget *window;
+    GtkWidget *table;
+    GtkWidget *hruler = gtk_hruler_new();
+    gtk_ruler_set_metric(GTK_RULER(hruler), GTK_PIXELS);
+    gtk_ruler_set_range(GTK_RULER(hruler), 0, 200, 0, 200);
+
+    table = gtk_table_new(3, 2, FALSE);
+    gtk_container_add(GTK_CONTAINER(window), table);
 
     window = gtk_application_window_new (app);
     gtk_window_set_title (GTK_WINDOW (window), "Window");
     gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
+
+    gtk_container_add(GTK_CONTAINER(window), hruler);
+
     gtk_widget_show_all (window);
 }
 
